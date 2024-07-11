@@ -117,10 +117,7 @@ void() SetNewParms =
 		parm10 = 0;
 	}
 //--ZOID
-	if (skill == 3 && !deathmatch)
-		parm2 = 50;
-	else
-		parm2 = 100;
+	parm2 = 100;
 	parm4 = 25;
 	parm5 = 0;
 	parm6 = 0;
@@ -837,18 +834,12 @@ void() PutClientInServer =
 	local	entity spot;
 
 	self.classname = "player";
-	if (skill == 3 && !deathmatch)
-		self.health = 50;
-	else
-		self.health = 100;
+	self.health = 100;
 	self.takedamage = DAMAGE_AIM;
 	self.solid = SOLID_SLIDEBOX;
 	self.movetype = MOVETYPE_WALK;
 	self.show_hostile = 0;
-	if (skill == 3 && !deathmatch)
-		self.max_health = 50;
-	else
-		self.max_health = 100;
+	self.max_health = 100;
 	self.flags = FL_CLIENT;
 	self.air_finished = time + 12;
 	self.dmg = 2;   		// initial water damage

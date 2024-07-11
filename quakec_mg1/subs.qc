@@ -343,13 +343,13 @@ void() SUB_UseTargets =
 
 in nightmare mode, all attack_finished times become 0
 some monsters refire twice automatically
-update: not anymore! it makes nightmare too easy
+
 */
 
 void(float normal) SUB_AttackFinished =
 {
 	self.cnt = 0;		// refire count for nightmare
-	//if (skill != 3)
+	if (skill != 3)
 	self.attack_finished = time + normal;
 };
 
