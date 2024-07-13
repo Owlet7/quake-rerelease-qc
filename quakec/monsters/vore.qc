@@ -186,21 +186,21 @@ void() ShalMissile =
 
 void() ShalHome =
 {
-	local vector	dir, vtemp;
-	vtemp = self.enemy.origin + '0 0 10';
+	local vector dir, vtemp;
 
+	vtemp = self.enemy.origin + '0 0 10';
 	if (self.enemy.health < 1)
 	{
 		remove(self);
 		return;
 	}
-
 	dir = normalize(vtemp - self.origin);
-
-	self.velocity = dir * 250;
-
+	if (skill == 3)
+		self.velocity = dir * 350;
+	else
+		self.velocity = dir * 250;
 	self.nextthink = time + 0.2;
-	self.think = ShalHome;	
+	self.think = ShalHome;
 };
 
 void() ShalMissileTouch =
